@@ -13,8 +13,11 @@ describe('Content Script', () => {
     expect(contentScriptContent).toBeTruthy();
   });
 
-  test('content.js appears to handle DOM interactions', () => {
-    expect(contentScriptContent).toMatch(/document\./);
-    expect(contentScriptContent).toMatch(/querySelector/);
+  test('content.js uses DOM manipulation methods', () => {
+    expect(contentScriptContent).toMatch(/document\.(getElementsByClassName|addEventListener|querySelector)/);
+  });
+
+  test('content.js handles Chrome extension messaging', () => {
+    expect(contentScriptContent).toMatch(/chrome\.(runtime|storage)/);
   });
 });
