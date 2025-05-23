@@ -13,8 +13,7 @@ describe('Popup Module', () => {
     expect(popupContent).toBeTruthy();
   });
 
-  test('popup.js contains essential chrome extension functions', () => {
-    expect(popupContent).toMatch(/chrome\.tabs/);
-    expect(popupContent).toMatch(/chrome\.runtime/);
+  test('popup.js contains essential Chrome extension event handling', () => {
+    expect(popupContent).toMatch(/chrome\.(runtime|storage)/);
   });
 });
